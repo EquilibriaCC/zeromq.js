@@ -31,6 +31,7 @@ function parseOptions(): Options {
 
 function main() {
   const opts = parseOptions()
+
   console.log("Building libzmq with options ", opts)
 
   if (opts.zmq_shared) {
@@ -103,7 +104,7 @@ function main() {
     writeFileSync(clang_format_file, "")
   }
 
-  const cmake_configure = `cmake -S "${src_dir}" -B ./build ${build_options} -DCMAKE_BUILD_TYPE=${opts.zmq_build_type} -DCMAKE_INSTALL_PREFIX="${libzmq_install_prefix}" -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_STATIC=ON -DBUILD_TESTS=OFF -DBUILD_SHARED=OFF -DWITH_DOCS=OFF -DWITH_LIBSODIUM=OFF`
+  const cmake_configure = `cmake -S "${src_dir}" -B ./build ${build_options} -DCMAKE_BUILD_TYPE=${opts.zmq_build_type} -DCMAKE_INSTALL_PREFIX="${libzmq_install_prefix}" -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_STATIC=ON -DBUILD_TESTS=OFF -DBUILD_SHARED=OFF -DWITH_DOCS=OFF -DWITH_LIBSODIUM=ON`
   console.log(cmake_configure)
   exec(cmake_configure, execOptions)
 
