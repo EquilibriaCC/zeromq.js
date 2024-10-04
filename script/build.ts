@@ -96,7 +96,7 @@ function main() {
     build_options += " -DENABLE_DRAFTS=ON"
   }
 
-  console.log(`Building libzmq ${opts.zmq_build_type} fucker`)
+  console.log(`Building libzmq ${opts.zmq_build_type}`)
 
   // ClangFormat include causes issues but is not required to build.
   const clang_format_file = `${src_dir}/builds/cmake/Modules/ClangFormat.cmake`
@@ -105,7 +105,7 @@ function main() {
   }
 
   const cmake_configure = `cmake -S "${src_dir}" -B ./build ${build_options} -DCMAKE_BUILD_TYPE=${opts.zmq_build_type} -DCMAKE_INSTALL_PREFIX="${libzmq_install_prefix}" -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_STATIC=ON -DBUILD_TESTS=OFF -DBUILD_SHARED=OFF -DWITH_DOCS=OFF -DWITH_LIBSODIUM=ON`
-  console.log(cmake_configure, "<<<<")
+  console.log(cmake_configure)
   exec(cmake_configure, execOptions)
 
   const cmake_build = `cmake --build ./build --config ${opts.zmq_build_type} --target install --parallel`
