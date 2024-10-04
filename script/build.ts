@@ -96,6 +96,8 @@ function main() {
     build_options += " -DENABLE_DRAFTS=ON"
   }
 
+  build_options += " -DWITH_LIBSODIUM=ON"
+
   console.log(`Building libzmq ${opts.zmq_build_type}`)
 
   // ClangFormat include causes issues but is not required to build.
