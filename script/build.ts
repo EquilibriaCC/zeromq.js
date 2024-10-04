@@ -96,7 +96,7 @@ function main() {
     build_options += " -DENABLE_DRAFTS=ON"
   }
 
-  console.log(`Building libzmq ${opts.zmq_build_type}`)
+  console.log(`Building libzmq ${opts.zmq_build_type} fucker`)
 
   // ClangFormat include causes issues but is not required to build.
   const clang_format_file = `${src_dir}/builds/cmake/Modules/ClangFormat.cmake`
